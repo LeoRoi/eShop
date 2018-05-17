@@ -1,0 +1,17 @@
+---
+- - :approve
+  - awesome_gpl_gem
+  - &1
+    :who: "‘V."
+    :why: Go ahead
+    :versions: []
+    :when: 2018-05-17 17:24:36.412800000 Z
+- - :approve
+  - Schmidt’
+  - *1
+- - :whitelist
+  - MIT
+  - :who: V. Schmidt
+    :why: free to use
+    :versions: []
+    :when: 2018-05-17 17:25:00.543350000 Z
