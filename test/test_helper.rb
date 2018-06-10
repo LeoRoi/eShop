@@ -3,7 +3,6 @@ SimpleCov.start('rails')
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
-
 module MiniTestWithBullet
   require 'minitest/unit'
 
