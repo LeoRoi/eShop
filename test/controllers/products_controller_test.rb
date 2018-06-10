@@ -24,7 +24,6 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
                                        price: '9.8',
                                        title: 'tryTitle' } }
     end
-
     assert_redirected_to product_url(Product.last)
   end
 
