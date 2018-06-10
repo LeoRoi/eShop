@@ -87,6 +87,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
+    comfy_bootstrap_form (4.0.4)
+      rails (>= 5.0.0)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
     cuba (3.9.2)
@@ -335,6 +337,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
+  comfy_bootstrap_form (~> 4.0.0)
   database_cleaner
   guard
   guard-annotate (~> 2.3)

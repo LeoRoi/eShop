@@ -44,6 +44,7 @@ gem 'jbuilder', '~> 2.5'
 #Bootstrap 4
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+gem 'comfy_bootstrap_form', '~> 4.0.0'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
