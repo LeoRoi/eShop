@@ -27,6 +27,16 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to product_url(Product.last)
   end
 
+  test "should create false product" do
+    assert_no_difference('Product.count') do
+      post products_url, params: { product:
+                                     { description: 'Try a Description',
+                                       image_url: 'try.jpg',
+                                       price: 'FalseString',
+                                       title: 'tryTitle' } }
+    end
+  end
+
   test "should show product" do
     get product_url(@product)
     assert_response :success
@@ -44,6 +54,14 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
                                                price: '9.8',
                                                title: 'tryTitle' } }
     assert_redirected_to product_url(@product)
+  end
+
+  test "should not update product" do
+    patch product_url(@product), params: { product:
+                                             { description: 'Try a Description',
+                                               image_url: 'try.jpg',
+                                               price: 'False String',
+                                               title: 'tryTitle' } }
   end
 
   test "should destroy product" do
