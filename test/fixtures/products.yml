@@ -9,8 +9,3 @@ two:
  description: MyText2
  image_url: https://i.pinimg.com/736x/1c/bd/d2/1cbdd2c2c8fac70cd17d531b8415b574--look-ems.jpg
  price: 2.22
-Rails:
- title: Code with Rails
- description: Rail is amazing. Cannot wait to start coding.
- price: 99.99
- image_url: http://www.bringingbackawesome.com/wp-content/uploads/2013/05/Adelaide_Darwin_Railway_Line_between_Adelaide_River_and_Pine_Creek_DSC03643.jpg

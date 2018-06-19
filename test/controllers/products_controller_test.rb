@@ -20,7 +20,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Product.count') do
       post products_url, params: { product:
                                      { description: 'Try a Description',
-                                       image_url: 'try.jpg',
+                                       image_url: 'http://www.try/try.jpg',
                                        price: '9.8',
                                        title: 'tryTitle' } }
     end
@@ -31,7 +31,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_no_difference('Product.count') do
       post products_url, params: { product:
                                      { description: 'Try a Description',
-                                       image_url: 'try.jpg',
+                                       image_url: 'http://www.try/try.jpg',
                                        price: 'FalseString',
                                        title: 'tryTitle' } }
     end
@@ -50,7 +50,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   test "should update product" do
     patch product_url(@product), params: { product:
                                              { description: 'Try a Description',
-                                               image_url: 'try.jpg',
+                                               image_url: 'http://www.try/try.jpg',
                                                price: '9.8',
                                                title: 'tryTitle' } }
     assert_redirected_to product_url(@product)
@@ -59,7 +59,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   test "should not update product" do
     patch product_url(@product), params: { product:
                                              { description: 'Try a Description',
-                                               image_url: 'try.jpg',
+                                               image_url: 'http://www.try/try.jpg',
                                                price: 'False String',
                                                title: 'tryTitle' } }
   end
