@@ -6,6 +6,11 @@
 
 * Crud
 
+### Catalog Display
+
+* Product displayed in a catalog
+
+
 ## Additional Gems
 
 ### Implementation
