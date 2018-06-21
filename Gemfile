@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 #exact ruby version
 ruby '2.4.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -27,8 +26,6 @@ gem 'brakeman', require: false
 # RuboCop configuration which has the same code style checking as official Ruby on Rails
 gem 'rubocop', '~> 0.51.0', require: false
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -47,6 +44,8 @@ gem 'jquery-rails'
 gem 'comfy_bootstrap_form', '~> 4.0.0'
 
 group :development do
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
@@ -113,7 +112,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '~> 1.0'
+  gem 'pg', '~> 0.18.4'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
