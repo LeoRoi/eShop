@@ -41,10 +41,38 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-
 #Bootstrap 4
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+gem 'comfy_bootstrap_form', '~> 4.0.0'
+
+group :development do
+  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+  gem 'web-console', '>= 3.3.0'
+  gem 'listen', '>= 3.0.5', '< 3.2'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+  # Brakeman is an open source static analysis tool which checks Rails applications for security vulnerabilities.
+  gem 'brakeman', require: false
+  # compare licenses against a user-defined whitelist, and give you an actionable exception report
+  gem 'license_finder', '~> 3.0', '>= 3.0.1', require: false
+  # bundler-audit provides patch-level verification for Bundled apps
+  gem 'bundler-audit', '~> 0.6.0', require: false
+  # Bundler guard allows to automatically & intelligently install/update bundle when needed
+  gem 'guard-bundler', '~> 2.1', require: false
+  # Better Errors replaces the standard Rails error page with a much better and more useful error page
+  gem 'better_errors'
+  # necessary to use Better Errors' advanced features
+  gem 'binding_of_caller', platforms: :ruby
+  # RuboCop configuration which has the same code style checking as official Ruby on Rails
+  gem 'rubocop', '~> 0.51.0', require: false
+  gem 'guard-rubocop', require: false
+  # i18n-tasks helps you find and manage missing and unused translations
+  gem 'i18n-tasks', require: false
+  # IYE makes it easy to translate your Rails I18N files and keeps them up to date
+  gem 'iye', require: false
+end
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
@@ -53,11 +81,14 @@ group :development, :test do
   gem 'pry-byebug', platform: :ruby
   # Pry is a powerful alternative to the standard IRB shell for Ruby
   gem 'pry-rails'
+  # Pretty print your Ruby objects with style -- in full color and with proper identation
+  gem 'awesome_print'
+  gem 'annotate'
+  gem 'guard-annotate', '~> 2.3'
   # Use for fighting the N+1 problem in Ruby
   gem 'bullet'
   # Speedup RSpec + Cucumber by running parallel on multiple CPU cores
   gem 'parallel_tests'
-
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
@@ -81,34 +112,8 @@ group :test do
   gem 'shoulda-matchers'
 end
 
-
-group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-
-  # Brakeman is an open source static analysis tool which checks Rails applications for security vulnerabilities.
-  gem 'brakeman', require: false
-  # compare licenses against a user-defined whitelist, and give you an actionable exception report
-  gem 'license_finder', '~> 3.0', '>= 3.0.1', require: false
-  # bundler-audit provides patch-level verification for Bundled apps
-  gem 'bundler-audit', '~> 0.6.0', require: false
-  # Bundler guard allows to automatically & intelligently install/update bundle when needed
-  gem 'guard-bundler', '~> 2.1', require: false
-  # Better Errors replaces the standard Rails error page with a much better and more useful error page
-  gem 'better_errors'
-  # necessary to use Better Errors' advanced features
-  gem 'binding_of_caller', platforms: :ruby
-  # RuboCop configuration which has the same code style checking as official Ruby on Rails
-  gem 'rubocop', '~> 0.51.0', require: false
-  gem 'guard-rubocop', require: false
-  # i18n-tasks helps you find and manage missing and unused translations
-  gem 'i18n-tasks', require: false
-  # IYE makes it easy to translate your Rails I18N files and keeps them up to date
-  gem 'iye', require: false
+group :production do
+  gem 'pg', '~> 1.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

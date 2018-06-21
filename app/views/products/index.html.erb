@@ -1,0 +1,39 @@
+<% content_for :head do %>
+  <title>Show all products</title>
+<% end %>
+<div class="container-fluid text-justify customFont1">
+  <div class="row content">
+    <br>
+  </div>
+  <div class="row content">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-10">
+      <div class="row content">
+        <div class="col-sm-2">
+          <h6>Title:</h6>
+        </div>
+        <div class="col-sm-5">
+          <h6>Description:</h6>
+        </div>
+        <div class="col-sm-2">
+          <h6>Image:</h6>
+        </div>
+        <div class="col-sm-1">
+          <h6>Price:</h6>
+        </div>
+        <div class="col-sm-2">
+        </div>
+      </div>
+      <%= render @products %>
+      <%= link_to 'New Product', new_product_path %>
+    </div>
+    <br>
+  </div>
+  <div class="row content">
+    <br>
+    <br>
+  </div>
+</div>
+
+
