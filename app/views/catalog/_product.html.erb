@@ -1,0 +1,12 @@
+<div class="row content">
+      <div class="col-sm-4">
+        <img src=<%= product.image_url %> width='200', height='200'/>
+      </div>
+      <div class="col-sm-8">
+        <h5> <%= product.title %> </h5>
+        <br>
+          <p> <%= product.description %> </p>
+        <p> <h6><%= number_to_currency(product.price) %> </h6></p>
+      </div>
+    </div>
+<hr/>

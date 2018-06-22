@@ -6,6 +6,11 @@
 
 * Crud
 
+### Catalog Display
+
+* Product displayed in a catalog
+
+
 ## Additional Gems
 
 ### Implementation
@@ -92,6 +97,9 @@ Run your tests and open up ```coverage/index.html``` in your browser.
 
 
 ##Available pages:
+```
+localhost:3000
+```
 ```
 localhost:3000/products
 ```

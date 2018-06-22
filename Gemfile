@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 #exact ruby version
 ruby '2.4.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -27,8 +26,6 @@ gem 'brakeman', require: false
 # RuboCop configuration which has the same code style checking as official Ruby on Rails
 gem 'rubocop', '~> 0.51.0', require: false
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -41,6 +38,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+
 #Bootstrap 4
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
@@ -53,14 +51,14 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  # Brakeman is an open source static analysis tool which checks Rails applications for security vulnerabilities.
-  gem 'brakeman', require: false
-  # compare licenses against a user-defined whitelist, and give you an actionable exception report
-  gem 'license_finder', '~> 3.0', '>= 3.0.1', require: false
   # bundler-audit provides patch-level verification for Bundled apps
   gem 'bundler-audit', '~> 0.6.0', require: false
   # Bundler guard allows to automatically & intelligently install/update bundle when needed
   gem 'guard-bundler', '~> 2.1', require: false
+  # compare licenses against a user-defined whitelist, and give you an actionable exception report
+  gem 'license_finder', '~> 3.0', '>= 3.0.1', require: false
+  # Brakeman is an open source static analysis tool which checks Rails applications for security vulnerabilities.
+  gem 'brakeman', require: false
   # Better Errors replaces the standard Rails error page with a much better and more useful error page
   gem 'better_errors'
   # necessary to use Better Errors' advanced features
@@ -83,17 +81,14 @@ group :development, :test do
   gem 'pry-rails'
   # Pretty print your Ruby objects with style -- in full color and with proper identation
   gem 'awesome_print'
+  # Add a comment summarizing the current schema to the top or bottom of each of your ActiveRecord models, Specs, factory_girl factories...
   gem 'annotate'
+  # Annotate guard runs the annotate gem when needed
   gem 'guard-annotate', '~> 2.3'
   # Use for fighting the N+1 problem in Ruby
   gem 'bullet'
   # Speedup RSpec + Cucumber by running parallel on multiple CPU cores
   gem 'parallel_tests'
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
 end
 
 group :test do
@@ -102,8 +97,6 @@ group :test do
   gem 'guard-minitest'
   # This gem brings back assigns to your controller tests as well as assert_template
   gem 'rails-controller-testing'
-  # To get the default Rails tests to show red and green at the appropriate times
-  gem 'minitest-reporters'
   # Strategies for cleaning databases in Ruby. Can be used to ensure a clean state for testing.
   gem 'database_cleaner'
   # Code coverage for Ruby
@@ -113,7 +106,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '~> 1.0'
+  gem 'pg', '~> 0.18.4'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
