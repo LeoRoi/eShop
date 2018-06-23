@@ -15,12 +15,18 @@
           Shopping cart
         </div>
         <%= render partial: "carts/line_item", collection: @cart.line_items %>
+        <br>
         <div class="card-footer">
-          <div class="pull-right" >
+          <div class="row content">
+            <div class="col-sm-6" >
+              <%= button_to "Empty Cart", cart_path(id: @cart), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+            </div>
+          <div class="col-sm-6 pull-right" >
             <a href="" class="btn btn-success pull-right btn-sm">Checkout</a>
             <div class="pull-right" style="margin: 5px">
               Total price: <b>50.00€</b>
             </div>
+          </div>
           </div>
         </div>
       </div>
