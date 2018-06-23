@@ -1,4 +1,7 @@
 class LineItemsController < ApplicationController
+  include CurrentCart   #modul current_cart in controllers/concerns
+  before_action :set_cart, only: [:create]  #rufen methode set_cart vom CurrentCart auf
+
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 
   # GET /line_items
@@ -23,12 +26,14 @@ class LineItemsController < ApplicationController
 
   # POST /line_items
   # POST /line_items.json
-  def create
-    @line_item = LineItem.new(line_item_params)
+  def create  #geändert, um
+    product = Product.find(params[:product_id])  # product finden vom parameter product_id der Request
+    @line_item = @cart.line_items.new(product: product) # hier die gefundene Produkt wird in cart und
+    # line items gegeben und die entsprechende Beziehung ergestellt.
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item, notice: 'Line item was successfully created.' }
+        format.html { redirect_to @line_item.cart, notice: 'Line item was successfully created.' }
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }
