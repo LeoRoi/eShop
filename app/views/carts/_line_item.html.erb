@@ -1,6 +1,5 @@
 <div class="card-body">
 
-  <!-- PRODUCT -->
   <div class="row content">
     <div class="col-12 col-sm-12 col-md-2 text-center">
       <img class="img-responsive" src=<%= line_item.product.image_url %> alt="prewiew" width="100" height="100">
@@ -13,7 +12,7 @@
     </div>
     <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
       <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
-        <h6><strong><%= number_to_currency(line_item.product.price) %> <span class="text-muted">x</span></strong></h6>
+        <h6><strong><%= number_to_currency(line_item.product.price) %> </strong> </h6> <span class="text-muted">x <%= line_item.quantity %></span>
       </div>
 
       <div class="col-4 col-sm-4 col-md-4">
@@ -24,14 +23,11 @@
       </div>
 
       <div class="col-2 col-sm-2 col-md-2 text-right">
-        <%= button_to "Delete", line_item_path(product_id: line_item.product), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-xs btn-sm" %>
+        <%= button_to "Delete", line_item_path(id: line_item), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-xs btn-sm" %>
       </div>
 
     </div>
   </div>
-  <!-- END PRODUCT -->
 
 </div>
-
-
 <hr/>

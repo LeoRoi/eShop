@@ -28,8 +28,7 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create  #geändert, um
     product = Product.find(params[:product_id])  # product finden vom parameter product_id der Request
-    @line_item = @cart.line_items.new(product: product) # hier die gefundene Produkt wird in cart und
-    # line items gegeben und die entsprechende Beziehung ergestellt.
+    @line_item = @cart.add_product(product) # add_product methode in model definiert
 
     respond_to do |format|
       if @line_item.save
