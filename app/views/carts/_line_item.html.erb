@@ -12,7 +12,8 @@
     </div>
     <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
       <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
-        <h6><strong><%= number_to_currency(line_item.product.price) %> </strong> </h6> <span class="text-muted">x <%= line_item.quantity %></span>
+        <h6><strong><%= number_to_currency(line_item.total_price) %> </strong></h6>
+        <span class="text-muted">x <%= line_item.quantity %></span>
       </div>
 
       <div class="col-4 col-sm-4 col-md-4">

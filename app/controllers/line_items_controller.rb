@@ -1,6 +1,6 @@
 class LineItemsController < ApplicationController
-  include CurrentCart   #modul current_cart in controllers/concerns
-  before_action :set_cart, only: [:create]  #rufen methode set_cart vom CurrentCart auf
+  include CurrentCart #modul current_cart in controllers/concerns
+  before_action :set_cart, only: [:create] #rufen methode set_cart vom CurrentCart auf
 
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 
@@ -26,8 +26,8 @@ class LineItemsController < ApplicationController
 
   # POST /line_items
   # POST /line_items.json
-  def create  #geändert, um
-    product = Product.find(params[:product_id])  # product finden vom parameter product_id der Request
+  def create
+    product = Product.find(params[:product_id]) # product finden vom parameter product_id der Request
     @line_item = @cart.add_product(product) # add_product methode in model definiert
 
     respond_to do |format|
@@ -66,13 +66,13 @@ class LineItemsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_line_item
-      @line_item = LineItem.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_line_item
+    @line_item = LineItem.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def line_item_params
-      params.require(:line_item).permit(:product_id, :cart_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def line_item_params
+    params.require(:line_item).permit(:product_id, :cart_id)
+  end
 end

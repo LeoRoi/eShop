@@ -27,7 +27,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to product_url(Product.last)
   end
 
-  test "should create false product" do
+  test "should not create product" do
     assert_no_difference('Product.count') do
       post products_url, params: { product:
                                      { description: 'Try a Description',
