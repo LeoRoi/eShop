@@ -14,7 +14,7 @@
           <i class="fa fa-shopping-cart" aria-hidden="true"></i>
           Shopping cart
         </div>
-        <%= render partial: "carts/line_item", collection: @cart.line_items %>
+        <%= render @cart.line_items %>
         <br>
         <div class="card-footer">
           <div class="row content">

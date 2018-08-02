@@ -16,11 +16,10 @@
         <span class="text-muted">x <%= line_item.quantity %></span>
       </div>
 
-      <div class="col-4 col-sm-4 col-md-4">
-        <div class="quantity">
-          <input type="number" step="1" max="99" min="1" value="1" title="Qty" class="qty"
-                 size="4">
-        </div>
+      <div>
+        <%= button_to "+", line_items_path(product_id: line_item.product), class: "btn "%>
+        <br>
+        <%= button_to "-", line_item.cart.remove_product(line_item.product), class: "btn ", method: :update %>
       </div>
 
       <div class="col-2 col-sm-2 col-md-2 text-right">
