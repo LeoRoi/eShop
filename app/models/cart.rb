@@ -20,7 +20,7 @@ class Cart < ApplicationRecord
     current_item
   end
 
-  def remove_product(product) #wenn product schon in cart, quantity line_items +1, sonst eine neue
+  def remove_product(product)
     current_item = line_items.find_by(product_id: product.id)
     if current_item && current_item.quantity > 0
       current_item.quantity -= 1

@@ -35,16 +35,15 @@ class LineItemsController < ApplicationController
         @line_item = @cart.remove_product(product) # add_product methode in model definiert
     end
 
-
-
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to cart_path(id: @line_item.cart.id), notice: 'Line item was successfully created.' }
-        format.js
+        format.html { redirect_to @line_item.cart, notice: 'Line item was successfully created.' }
         format.json { render :show, status: :created, location: @line_item }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
