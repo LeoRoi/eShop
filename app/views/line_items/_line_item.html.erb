@@ -17,9 +17,9 @@
       </div>
 
       <div>
-        <%= button_to "+", line_items_path(product_id: line_item.product), class: "btn "%>
+        <%= button_to "+", line_items_path(product_id: line_item.product, operation: 0), class: "btn "%>
         <br>
-        <%= button_to "-", line_item.cart.remove_product(line_item.product), class: "btn ", method: :update %>
+        <%= button_to "-", line_items_path(product_id: line_item.product, operation: 1), class: "btn "%>
       </div>
 
       <div class="col-2 col-sm-2 col-md-2 text-right">

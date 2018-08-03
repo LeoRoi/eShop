@@ -28,7 +28,14 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     product = Product.find params[:product_id] # product finden vom parameter product_id der Request
-    @line_item = @cart.add_product(product) # add_product methode in model definiert
+
+    if params[:operation].to_i == 0
+        @line_item = @cart.add_product(product) # add_product methode in model definiert
+      else
+        @line_item = @cart.remove_product(product) # add_product methode in model definiert
+    end
+
+
 
     respond_to do |format|
       if @line_item.save
