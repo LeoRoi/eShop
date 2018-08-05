@@ -1,6 +1,6 @@
 class LineItemsController < ApplicationController
   include CurrentCart #modul current_cart in controllers/concerns
-  before_action :set_cart, only: [:create] #rufen methode set_cart vom CurrentCart auf
+  before_action :set_cart, only: [:create, :increase, :decrease] #rufen methode set_cart vom CurrentCart auf
 
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 
@@ -29,11 +29,7 @@ class LineItemsController < ApplicationController
   def create
     product = Product.find params[:product_id] # product finden vom parameter product_id der Request
 
-    if params[:operation].to_i == 0
-        @line_item = @cart.add_product(product) # add_product methode in model definiert
-      else
-        @line_item = @cart.remove_product(product) # add_product methode in model definiert
-    end
+    @line_item = @cart.add_product(product) # add_product methode in model definiert
 
     respond_to do |format|
       if @line_item.save
@@ -71,6 +67,44 @@ class LineItemsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def decrease
+    product = Product.find params[:product_id] # product finden vom parameter product_id der Request
+
+    @line_item = @cart.remove_product(product) # add_product methode in model definiert
+
+    respond_to do |format|
+      if @line_item.save
+        format.html { redirect_to @line_item.cart, notice: 'Line item was successfully created.' }
+        format.json { render :show, status: :created, location: @line_item }
+        format.js
+      else
+        format.html { render :new }
+        format.json { render json: @line_item.errors, status: :unprocessable_entity }
+        format.js
+      end
+    end
+  end
+
+  def increase
+    product = Product.find params[:product_id] # product finden vom parameter product_id der Request
+
+    @line_item = @cart.add_product(product) # add_product methode in model definiert
+
+    respond_to do |format|
+      if @line_item.save
+        format.html { redirect_to @line_item.cart, notice: 'Line item was successfully created.' }
+        format.json { render :show, status: :created, location: @line_item }
+        format.js
+      else
+        format.html { render :new }
+        format.json { render json: @line_item.errors, status: :unprocessable_entity }
+        format.js
+      end
+    end
+
+  end
+
 
   private
   # Use callbacks to share common setup or constraints between actions.

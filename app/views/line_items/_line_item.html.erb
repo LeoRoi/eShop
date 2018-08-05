@@ -17,9 +17,9 @@
       </div>
 
       <div>
-        <%= button_to "+", line_items_path(product_id: line_item.product, operation: 0), class: "btn ", remote: true %>
+        <%= button_to "+", increase_line_item_path(product_id: line_item.product), remote: true, class: "btn ", method: :put %>
         <br>
-        <%= button_to "-", line_items_path(product_id: line_item.product, operation: 1), class: "btn ", remote: true %>
+        <%= button_to "-", decrease_line_item_path(product_id: line_item.product), remote: true, class: "btn ", method: :put %>
       </div>
 
       <div class="col-2 col-sm-2 col-md-2 text-right">
