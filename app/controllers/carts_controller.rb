@@ -7,7 +7,6 @@ class CartsController < ApplicationController
   # GET /carts
   # GET /carts.json
   def index
-    @carts = Cart.all
     respond_to do |format|
       format.html { redirect_to @cart, notice: 'Line item was successfully created.' }
       format.json { render :show, status: :created, location: @line_item }

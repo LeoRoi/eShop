@@ -34,8 +34,8 @@
       <a class="nav-link" href='#'>Account</a>
     </li>
     <a class="navbar-separator">|</a>
-    <li class="nav-item <%= 'active' if current_page?(carts_path) %>">
-      <a class="nav-link" href='<%=carts_path%>'  > Cart </a>
+    <li class="nav-item <%= 'active' if request.fullpath.start_with?('/carts') %>">
+      <a class="nav-link" href='<%=carts_path%>' id ="cartLink"> Cart </a>
     </li>
   </ul>
 </nav>
