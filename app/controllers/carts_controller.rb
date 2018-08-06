@@ -1,10 +1,17 @@
 class CartsController < ApplicationController
+  include CurrentCart #modul current_cart in controllers/concerns
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
+
+  before_action :set_current_cart, only: [:index] #rufen methode set_cart vom CurrentCart auf
 
   # GET /carts
   # GET /carts.json
   def index
     @carts = Cart.all
+    respond_to do |format|
+      format.html { redirect_to @cart, notice: 'Line item was successfully created.' }
+      format.json { render :show, status: :created, location: @line_item }
+    end
   end
 
   # GET /carts/1

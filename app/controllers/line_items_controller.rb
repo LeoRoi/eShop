@@ -1,6 +1,6 @@
 class LineItemsController < ApplicationController
   include CurrentCart #modul current_cart in controllers/concerns
-  before_action :set_cart, only: [:create, :increase, :decrease] #rufen methode set_cart vom CurrentCart auf
+  before_action :set_current_cart, only: [:create, :increase, :decrease] #rufen methode set_cart vom CurrentCart auf
 
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 
@@ -104,7 +104,6 @@ class LineItemsController < ApplicationController
     end
 
   end
-
 
   private
   # Use callbacks to share common setup or constraints between actions.
