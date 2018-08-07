@@ -59,5 +59,4 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
     assert_equal(0, @cart.total_price)
   end
 
-
 end

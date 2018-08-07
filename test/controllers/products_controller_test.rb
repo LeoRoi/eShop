@@ -65,12 +65,6 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
                                                title: 'tryTitle' } }
   end
 
-  test "should not destroy product because of line_items" do
-    assert_difference('Product.count', 0) do
-      delete product_url(@product)
-    end
-  end
-
   test "should destroy product" do
     assert_difference('Product.count', -1) do
       delete product_url(@product2)

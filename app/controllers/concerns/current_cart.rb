@@ -1,4 +1,4 @@
-#Current Cart in Current Session. Falls cart nicht gefunden, es wird eine neue erzeugt
+# Current Cart in Current Session. Falls cart nicht gefunden, es wird eine neue erzeugt
 module CurrentCart
 
   private
