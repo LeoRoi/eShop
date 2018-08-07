@@ -1,0 +1,26 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Redirect",
+      "warning_code": 18,
+      "fingerprint": "9774630e9a7c98a499f667ea4541bb0ab25f914edf6d76baa62f71c119a65dac",
+      "check_name": "Redirect",
+      "message": "Possible unprotected redirect",
+      "file": "app/controllers/line_items_controller.rb",
+      "line": 34,
+      "link": "https://brakemanscanner.org/docs/warning_types/redirect/",
+      "code": "redirect_to(Cart.create.add_product(Product.find(params[:product_id])).cart, :notice => \"Line item was successfully created.\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "LineItemsController",
+        "method": "create"
+      },
+      "user_input": "Cart.create.add_product(Product.find(params[:product_id])).cart",
+      "confidence": "High",
+      "note": ""
+    }
+  ],
+  "updated": "2018-08-07 17:09:57 +0200",
+  "brakeman_version": "4.3.1"
+}

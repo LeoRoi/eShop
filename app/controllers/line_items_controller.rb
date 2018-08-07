@@ -27,8 +27,8 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    product = Product.find params[:product_id] # product finden vom parameter product_id der Request
-    @line_item = @cart.add_product(product) # add_product methode in model definiert
+    product = Product.find params[:product_id]
+    @line_item = @cart.add_product(product)
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to @line_item.cart, notice: 'Line item was successfully created.' }
@@ -63,19 +63,19 @@ class LineItemsController < ApplicationController
     @line_item = @cart.remove_product(product)
     respond_to do |format|
       @line_item.save
-      format.html { redirect_to @line_item.cart, notice: 'Line item was successfully created.' }
+      format.html { redirect_to URI.parse(@line_item.cart).path, notice: 'Line item was successfully created.' }
       format.json { render :show, status: :created, location: @line_item }
       format.js
     end
   end
-#PROBLEMA: i prodotti vengono addati (creato nuovo) e rimossi dal current cart nel controller, come ovviare?
+
   def increase
     product = Product.find params[:product_id]
     @line_item = @cart.add_product(product)
 
     respond_to do |format|
       @line_item.save
-      format.html { redirect_to @line_item.cart, notice: 'Line item was successfully created.' }
+      format.html { redirect_to URI.parse(@line_item.cart).path, notice: 'Line item was successfully created.' }
       format.json { render :show, status: :created, location: @line_item }
       format.js
     end
