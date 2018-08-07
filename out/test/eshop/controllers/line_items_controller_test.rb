@@ -44,4 +44,20 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to cart_url
   end
+
+  test "should increase line_item" do
+    post line_items_url, params: { product_id: products(:one).id }
+    @cart = Cart.find(session[:cart_id])
+    put increase_line_item_url(@line_item), params: { product_id: @line_item.product_id }
+    assert_equal(2.22, @cart.total_price)
+  end
+
+  test "should decrease line_item" do
+    post line_items_url, params: { product_id: products(:one).id }
+    @cart = Cart.find(session[:cart_id])
+    put decrease_line_item_url(@line_item), params: { product_id: @line_item.product_id }
+    assert_equal(0, @cart.total_price)
+  end
+
+
 end

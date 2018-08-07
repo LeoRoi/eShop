@@ -9,3 +9,9 @@ two:
  description: MyText2
  image_url: https://i.pinimg.com/736x/1c/bd/d2/1cbdd2c2c8fac70cd17d531b8415b574--look-ems.jpg
  price: 2.22
+
+three:
+ title: MyString3
+ description: MyText3
+ image_url: https://i.pinimg.com/736x/1c/bd/d2/1cbdd2c2c8fac70cd17d531b8415b574--look-ems.jpg
+ price: 3.33

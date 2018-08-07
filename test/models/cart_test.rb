@@ -13,6 +13,10 @@ class CartTest < ActiveSupport::TestCase
     assert_equal(2, @cart.add_product(products(:one)).quantity)
   end
 
+  test "should remove quantity to Product" do
+    assert_equal(0, @cart.remove_product(products(:one)).quantity)
+  end
+
   test "should add new Product" do
     assert_equal(1, @cart.add_product(products(:two)).quantity)
   end

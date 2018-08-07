@@ -7,7 +7,7 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get index" do
     get carts_url
-    assert_response :success
+    assert_response :found
   end
 
   test "should get new" do
@@ -39,10 +39,11 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy cart" do
+    post line_items_url, params: { product_id: products(:one).id }
+    @cart = Cart.find(session[:cart_id])
     assert_difference('Cart.count', -1) do
       delete cart_url(@cart)
     end
-
     assert_redirected_to catalog_index_url
   end
 end
