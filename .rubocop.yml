@@ -78,7 +78,7 @@ Layout/CaseIndentation:
   IndentOneStep: true
   
 Metrics/LineLength:
-  Max: 130
+  Max: 120
     
 Metrics/MethodLength:
   Max: 20   
