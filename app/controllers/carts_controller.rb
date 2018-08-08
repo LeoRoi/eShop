@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
   include CurrentCart # modul current_cart in controllers/concerns
-  before_action :set_cart, only: [:show, :edit, :update, :destroy]
+  before_action :set_cart, only: [:edit, :update, :destroy]
+  before_action :set_cart2, only: [:show]
 
   before_action :set_current_cart, only: [:index] # rufen methode set_cart vom CurrentCart auf
 
@@ -68,7 +69,10 @@ class CartsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_cart
-    # binding.pry
+    @cart = Cart.find(params[:id])
+  end
+
+  def set_cart2
     @cart = Cart.includes(line_items: :product).find(params[:id])
   end
 
