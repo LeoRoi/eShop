@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   include CurrentCart # modul current_cart in controllers/concerns
-  before_action :set_cart, only: [:edit, :update, :destroy]
+  before_action :set_cart, only: [:destroy]
   before_action :set_cart2, only: [:show]
 
   before_action :set_current_cart, only: [:index] # rufen methode set_cart vom CurrentCart auf
@@ -16,15 +16,6 @@ class CartsController < ApplicationController
   def show
   end
 
-  # GET /carts/new
-  def new
-    @cart = Cart.new
-  end
-
-  # GET /carts/1/edit
-  def edit
-  end
-
   # POST /carts
   # POST /carts.json
   def create
@@ -36,20 +27,6 @@ class CartsController < ApplicationController
         format.json { render :show, status: :created, location: @cart }
       else
         format.html { render :new }
-        format.json { render json: @cart.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /carts/1
-  # PATCH/PUT /carts/1.json
-  def update
-    respond_to do |format|
-      if @cart.update(cart_params)
-        format.html { redirect_to @cart, notice: 'Cart was successfully updated.' }
-        format.json { render :show, status: :ok, location: @cart }
-      else
-        format.html { render :edit }
         format.json { render json: @cart.errors, status: :unprocessable_entity }
       end
     end
