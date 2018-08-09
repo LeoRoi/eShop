@@ -1,0 +1,3 @@
+$('#quantity_<%= @line_item.id %>').text('x <%= @line_item.quantity %>');
+$('#totlin_<%= @line_item.id %>').text('$ <%= @line_item.total_price %>');
+$('#totalPrice').text('Total price: $ <%= @cart.total_price %>');

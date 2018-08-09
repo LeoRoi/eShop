@@ -1,0 +1,43 @@
+<div class="container-fluid text-justify">
+  <div class="row content">
+    <br>
+    <br>
+  </div>
+  <div class="row content">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-10">
+
+      <div class="card shopping-cart">
+
+        <div class="card-header bg-dark text-light">
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          Shopping cart
+        </div>
+        <%= render @cart.line_items %>
+        <br>
+        <div class="card-footer">
+          <div class="row content">
+            <div class="col-sm-6">
+              <%= button_to "Empty Cart", cart_path(id: @cart), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+            </div>
+            <div class="col-sm-6 pull-right">
+              <a href="" class="btn btn-success pull-right btn-sm">Checkout</a>
+              <div class="pull-right" style="margin: 5px" id="totalPrice">
+                Total price: $ <%= @cart.total_price %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-1">
+    </div>
+  </div>
+  <div class="row content">
+    <br>
+    <br>
+    <br>
+  </div>
+</div>
