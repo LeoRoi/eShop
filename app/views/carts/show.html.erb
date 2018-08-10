@@ -22,7 +22,7 @@
               <%= button_to "Empty Cart", cart_path(id: @cart), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
             </div>
             <div class="col-sm-6 pull-right">
-              <a href="" class="btn btn-success pull-right btn-sm">Checkout</a>
+              <%= button_to "Checkout", new_order_path, method: :get, class: "btn btn-success pull-right btn-sm" %>
               <div class="pull-right" style="margin: 5px" id="totalPrice">
                 Total price: $ <%= @cart.total_price %>
               </div>
