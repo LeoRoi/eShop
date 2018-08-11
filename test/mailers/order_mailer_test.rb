@@ -16,4 +16,11 @@ class OrderMailerTest < ActionMailer::TestCase
     assert_equal ["marfoss429@gmail.com"], mail.from
   end
 
+  test "seller" do
+    mail = OrderMailer.seller(orders(:one))
+    assert_equal "You have received an Order!", mail.subject
+    assert_equal ["test@example.org"], mail.to
+    assert_equal ["marfoss429@gmail.com"], mail.from
+  end
+
 end

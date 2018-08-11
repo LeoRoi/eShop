@@ -1,0 +1,10 @@
+You received a new order from: <%= @order.name %>
+Order ID: <%= @order.id %>
+
+He ordered the following items:
+
+<%= render @order.line_items %>
+
+REMEMBER!: Go to: /orders and press "Shipped", when the order has been shipped!
+
+
