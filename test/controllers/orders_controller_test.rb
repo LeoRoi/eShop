@@ -18,11 +18,22 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create order" do
+    post line_items_url, params: { product_id: products(:one).id }
     assert_difference('Order.count') do
-      post orders_url, params: { order: { pay_type: @order.pay_type, address: @order.address, email: @order.email, name: @order.name } }
+      post orders_url, params: { order:
+                                   { pay_type: @order.pay_type,
+                                     address: @order.address,
+                                     email: @order.email,
+                                     name: @order.name } }
     end
 
     assert_redirected_to catalog_index_url
+  end
+
+  test "should not create order" do # without address (validation test)
+    assert_difference('Order.count', 0) do
+      post orders_url, params: { order: { pay_type: @order.pay_type, email: @order.email, name: @order.name } }
+    end
   end
 
   test "should destroy order" do

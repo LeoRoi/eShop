@@ -47,15 +47,15 @@ class OrdersController < ApplicationController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_order
     @order = Order.find(params[:id])
   end
 
   def ensure_cart_isnt_empty
-    if @cart.line_items.empty?
-      redirect_to catalog_index_url, notice: 'Your cart is empty'
-    end
+    return unless @cart.line_items.empty?
+    redirect_to catalog_index_url, notice: 'Your cart is empty'
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

@@ -6,7 +6,6 @@ class OrderMailerTest < ActionMailer::TestCase
     assert_equal "Order Confirmation", mail.subject
     assert_equal ["test@example.org"], mail.to
     assert_equal ["marfoss429@gmail.com"], mail.from
-    assert_match /1 x MyString3/, mail.body.encoded
   end
 
   test "shipped" do
