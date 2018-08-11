@@ -1,24 +1,53 @@
-<p id="notice"><%= notice %></p>
+<% content_for :head do %>
+  <title>Orders</title>
+<% end %>
+<div class="container-fluid text-justify productDescription">
+  <div class="row content">
+    <br>
+  </div>
+  <div class="row content">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-10">
+      <h2>Order n° <%= @order.id %></h2>
+      <p id="notice"><%= notice %></p>
+      <p>
+        <strong>Name:</strong>
+        <%= @order.name %>
+      </p>
+      <p>
+        <strong>Address:</strong>
+        <%= @order.address %>
+      </p>
+      <p>
+        <strong>Email:</strong>
+        <%= @order.email %>
+      </p>
+      <p>
+        <strong>Payment:</strong>
+        <%= @order.pay_type %>
+      </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @order.name %>
-</p>
+      <% @order.line_items.each do |lin| %>
+        <p>
+          <tr>
+            <strong>Product Name:</strong>
+            <%= lin.product.title %>
+          </tr>
+          <tr>
+            <strong>Quantity:</strong>
+            <%= lin.quantity %>
+          </tr>
+        </p>
+      <% end %>
 
-<p>
-  <strong>Address:</strong>
-  <%= @order.address %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @order.email %>
-</p>
-
-<p>
-  <strong> pay type:</strong>
-  <%= @order.pay_type %>
-</p>
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+      <%= link_to 'Edit', edit_order_path(@order) %> |
+      <%= link_to 'Back', orders_path %>
+    </div>
+    <div class="col-sm-1">
+    </div>
+  </div>
+  <div class="row content">
+    <br>
+  </div>
+</div>

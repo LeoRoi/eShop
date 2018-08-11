@@ -33,6 +33,7 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
+        OrderMailer.received(@order).deliver_later
         format.html { redirect_to catalog_index_url, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
@@ -59,6 +60,7 @@ class OrdersController < ApplicationController
   # DELETE /orders/1
   # DELETE /orders/1.json
   def destroy
+    OrderMailer.shipped(@order).deliver_later
     @order.destroy
     respond_to do |format|
       format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
