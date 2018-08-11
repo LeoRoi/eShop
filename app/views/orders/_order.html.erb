@@ -1,0 +1,20 @@
+<div class="row content breadcrumb">
+  <div class="col-sm-1">
+    <%= order.id %>
+  </div>
+  <div class="col-sm-2">
+    <%= order.name %>
+  </div>
+  <div class="col-sm-3">
+    <%= order.address %>
+  </div>
+  <div class="col-sm-3">
+    <%= order.email %>
+  </div>
+  <div class="col-sm-2">
+    <%= order.pay_type %>
+  </div>
+  <div class="col-sm-1">
+    <%= link_to 'Shipped', order, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+</div>

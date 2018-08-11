@@ -25,21 +25,6 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to catalog_index_url
   end
 
-  test "should show order" do
-    get order_url(@order)
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get edit_order_url(@order)
-    assert_response :success
-  end
-
-  test "should update order" do
-    patch order_url(@order), params: { order: { pay_type: @order.pay_type, address: @order.address, email: @order.email, name: @order.name } }
-    assert_redirected_to order_url(@order)
-  end
-
   test "should destroy order" do
     assert_difference('Order.count', -1) do
       delete order_url(@order)
