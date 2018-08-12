@@ -1,0 +1,42 @@
+<% content_for :head do %>
+  <title>Show all orders</title>
+<% end %>
+<div class="container-fluid text-justify productDescription">
+  <div class="row content">
+    <br>
+  </div>
+  <div class="row content">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-10">
+
+      <div class="row content">
+        <div class="col-sm-1">
+          <h6>ID:</h6>
+        </div>
+        <div class="col-sm-2">
+          <h6>Name:</h6>
+        </div>
+        <div class="col-sm-3">
+          <h6>Address:</h6>
+        </div>
+        <div class="col-sm-3">
+          <h6>E-Mail:</h6>
+        </div>
+        <div class="col-sm-2">
+          <h6>Pay_Type:</h6>
+        </div>
+        <div class="col-sm-2">
+        </div>
+      </div>
+      <%= render @orders %>
+    </div>
+    <div class="col-sm-1">
+    </div>
+    <br>
+  </div>
+  <div class="row content">
+    <br>
+    <br>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 <% content_for :head do %>
-  <title>Create product</title>
+  <title>New Order</title>
 <% end %>
 <div class="container-fluid text-justify productDescription">
   <div class="row content">
@@ -9,9 +9,9 @@
     <div class="col-sm-2">
     </div>
     <div class="col-sm-8">
-      <h2>New Product</h2>
-      <%= render 'form', product: @product %>
-      <%= link_to 'Back', products_path %>
+      <h2>New Order</h2>
+      <%= render 'form', order: @order %>
+      <%= link_to 'Back', carts_path %>
     </div>
     <div class="col-sm-2">
     </div>

@@ -6,6 +6,9 @@
     <li class="nav-item <%= 'active' if current_page?(products_path) %>">
       <a class="nav-link" href='<%= products_path %>'>Products</a>
     </li>
+    <li class="nav-item <%= 'active' if current_page?(orders_path) %>">
+      <a class="nav-link" href='<%= orders_path %>'>Orders</a>
+    </li>
   </ul>
 
   <ul class="navbar-nav ml-auto">
