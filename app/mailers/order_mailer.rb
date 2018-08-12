@@ -1,5 +1,4 @@
 class OrderMailer < ApplicationMailer
-  default from: 'eshop <marfoss429@gmail.com>'
 
   def seller(order)
     @order = order

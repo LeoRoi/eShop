@@ -1,9 +1,14 @@
 You received a new order from: <%= @order.name %>
+Adress: <%= @order.address %>
+E-mail: <%= @order.email %>
+
 Order ID: <%= @order.id %>
 
 He ordered the following items:
 
 <%= render @order.line_items %>
+
+Total: <%= @order.line_items.to_a.sum(&:total_price) %> $
 
 REMEMBER!: Go to: /orders and press "Shipped", when the order has been shipped!
 
