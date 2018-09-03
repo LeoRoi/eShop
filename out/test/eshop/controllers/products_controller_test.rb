@@ -3,6 +3,7 @@ require 'test_helper'
 class ProductsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @product = products(:one)
+    @product2 = products(:three)
 
   end
 
@@ -66,9 +67,10 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "should destroy product" do
     assert_difference('Product.count', -1) do
-      delete product_url(@product)
+      delete product_url(@product2)
     end
 
     assert_redirected_to products_url
   end
+
 end

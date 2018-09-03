@@ -1,0 +1,37 @@
+<% content_for :head do %>
+  <title>Show all users</title>
+<% end %>
+
+<!--heading-->
+<div class="container-fluid text-justify">
+  <!--  padding top-->
+  <div class="row content">
+    <br>
+  </div>
+  <!--  padding left-->
+  <div class="row content">
+    <div class="col-sm-1">
+    </div>
+
+    <div class="col-sm-10">
+
+      <div class="row content">
+        <div class="col-sm-12">
+          <h6>Name:</h6>
+        </div>
+      </div>
+
+      <!--elements-->
+      <%= render @users %>
+      <%= link_to 'New User', new_user_path %>
+    </div>
+    <div class="col-sm-1">
+    </div>
+    <br>
+  </div>
+  <!--  padding bottom-->
+  <div class="row content">
+    <br>
+    <br>
+  </div>
+</div>

@@ -2,14 +2,12 @@ require 'test_helper'
 
 class CartsControllerTest < ActionDispatch::IntegrationTest
   setup do
-
     @cart = carts(:one)
-
   end
 
   test "should get index" do
     get carts_url
-    assert_response :success
+    assert_response :found
   end
 
   test "should create cart" do

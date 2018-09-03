@@ -34,3 +34,4 @@ public/uploads
 .idea/
 /*.iml
 coverage
+.DS_Store
