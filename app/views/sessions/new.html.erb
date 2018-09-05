@@ -1,0 +1,55 @@
+<% content_for :head do %>
+  <title>Log in</title>
+<% end %>
+
+<div class="container-fluid text-justify">
+  <% if flash[:alert] %>
+    <p id="notice"><%= flash[:alert] %></p>
+  <% end %>
+
+  <div class="row content">
+    <br>
+  </div>
+
+  <div class="row content">
+    <div class="col-sm-2">
+    </div>
+
+    <div class="col-sm-8">
+      <h2>Enter your account data</h2>
+      <%= render 'form', user: @session %>
+      <%= link_to 'Cancel', catalog_index_url %>
+    </div>
+
+    <div class="col-sm-2">
+    </div>
+  </div>
+  <div class="row content">
+    <br>
+  </div>
+</div>
+
+  <%#= form_tag do %>
+<!--    <fieldset>-->
+<!--      <legend>Please Log In</legend>-->
+
+<!--      <div>-->
+        <%#= label_tag :name, 'Name:' %>
+        <%#= text_field_tag :name, params[:name] %>
+<!--      </div>-->
+
+<!--      <div>-->
+        <%#= label_tag :password, 'Password:' %>
+        <%#= password_field_tag :password, params[:password] %>
+<!--      </div>-->
+
+<!--      <div>-->
+        <%#= submit_tag "Login" %>
+<!--      </div>-->
+
+
+<!--    </fieldset>-->
+  <%# end %>
+<!--</div>-->
+
+

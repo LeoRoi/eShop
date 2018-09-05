@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+
+  # no index in url
+  get 'admin' => 'admin#index'
+
+  # different url mapping
+  controller :sessions do
+    get  'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
+
   resources :users
   resources :orders
   resources :line_items do

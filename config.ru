@@ -3,3 +3,5 @@
 require_relative 'config/environment'
 
 run Rails.application
+
+#? or in Application.rb?? config.force_ssl = true
