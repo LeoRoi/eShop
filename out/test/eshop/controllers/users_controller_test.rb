@@ -3,6 +3,7 @@ require 'test_helper'
 class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:one)
+    @user2 = users(:two)
   end
 
   test "should get index" do
@@ -17,14 +18,16 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create user" do
     assert_difference('User.count') do
-      post users_url, params: { user: { name: "testName", password: 'secret', password_confirmation: 'secret' } }
+      post users_url, params: { user: { name: 'messi', password: 'secret', password_confirmation: 'secret' } }
     end
 
     assert_redirected_to users_url
   end
 
   test "should not create user" do
-    post users_url, params: { user: { name: "testName", password: 'secret', password_confirmation: 'not secret' } }
+    assert_no_difference('User.count') do
+      post users_url, params: { user: { name: 'josef', password: 'secret', password_confirmation: 'secret' } }
+    end
   end
 
   test "should show user" do
@@ -43,14 +46,22 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should not update user" do
-    patch user_url(@user), params: { user: { name: @user.name, password: 'secret', password_confirmation: 'not secret' } }
+    patch user_url(@user), params: { user: { name: @user.name, password: 'secret1', password_confirmation: 'secret2' } }
   end
 
   test "should destroy user" do
     assert_difference('User.count', -1) do
       delete user_url(@user)
     end
-
     assert_redirected_to users_url
+  end
+
+  test "should not destroy last admin" do
+    assert_difference('User.count', -1) do
+      delete user_url(@user)
+    end
+    assert_no_difference('User.count') do
+      delete user_url(@user2)
+    end
   end
 end
