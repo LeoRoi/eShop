@@ -43,7 +43,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should not update user" do
-    patch user_url(@user), params: { user: { name: @user.name, password: 'secret', password_confirmation: 'not secret' } }
+    patch user_url(@user), params: { user: { name: @user.name, password: 'secret', password_confirmation: 'omg' } }
   end
 
   test "should destroy user" do
