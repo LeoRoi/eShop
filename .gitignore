@@ -33,5 +33,6 @@ public/uploads
 
 .idea/
 /*.iml
-coverage
+coverage/
 .DS_Store
+out/
