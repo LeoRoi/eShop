@@ -36,3 +36,9 @@ public/uploads
 coverage/
 .DS_Store
 out/
+.editorconfig
+.pryrc
+.rubocop.yml
+.ruby-gemset
+.ruby-version
+Guardfile
