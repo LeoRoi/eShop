@@ -42,4 +42,4 @@ out/
 .ruby-gemset
 .ruby-version
 Guardfile
-*.keep
+# *.keep
