@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  skip_before_action :authorize # , only: [:create, :update, :destroy]
+  skip_before_action :authorize
 
   include CurrentCart # modul current_cart in controllers/concerns
   before_action :set_cart, only: [:destroy]
@@ -16,6 +16,7 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
+    redirect_to catalog_index_path unless session[:cart_id] == @cart.id
   end
 
   # POST /carts
@@ -24,13 +25,9 @@ class CartsController < ApplicationController
     @cart = Cart.new(cart_params)
 
     respond_to do |format|
-      if @cart.save
-        format.html { redirect_to @cart, notice: 'Cart was successfully created.' }
-        format.json { render :show, status: :created, location: @cart }
-      else
-        format.html { render :new }
-        format.json { render json: @cart.errors, status: :unprocessable_entity }
-      end
+      @cart.save
+      format.html { redirect_to @cart, notice: 'Cart was successfully created.' }
+      format.json { render :show, status: :created, location: @cart }
     end
   end
 

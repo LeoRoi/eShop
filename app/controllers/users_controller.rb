@@ -53,8 +53,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    if User.count == 1
-      redirect_to users_url, notice: 'Cannot delete last user!'
+    if session[:user_id] == @user.id
+      redirect_to users_url, notice: 'Cannot delete last or active user!'
     else
       @user.destroy
       respond_to do |format|

@@ -1,9 +1,9 @@
 require 'test_helper'
 
 class CartsControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    @cart = carts(:one)
-  end
+  # setup do
+  # @cart = carts(:one)
+  # end
 
   test "should get index" do
     get carts_url
@@ -19,6 +19,8 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should show cart" do
+    post line_items_url, params: { product_id: products(:one).id }
+    @cart = Cart.find(session[:cart_id])
     get cart_url(@cart)
     assert_response :success
   end
