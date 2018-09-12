@@ -6,48 +6,48 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     @user2 = users(:two)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get users_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_user_url
     assert_response :success
   end
 
-  test "should create user" do
+  test 'should create user' do
     assert_difference('User.count') do
-      post users_url, params: { user: { name: "testName", password: 'secret', password_confirmation: 'secret' } }
+      post users_url, params: { user: { name: 'testName', password: 'secret', password_confirmation: 'secret' } }
     end
 
     assert_redirected_to users_url
   end
 
-  test "should not create user" do
-    post users_url, params: { user: { name: "testName", password: 'secret', password_confirmation: 'not secret' } }
+  test 'should not create user' do
+    post users_url, params: { user: { name: 'testName', password: 'secret', password_confirmation: 'not secret' } }
   end
 
-  test "should show user" do
+  test 'should show user' do
     get user_url(@user)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_user_url(@user)
     assert_response :success
   end
 
-  test "should update user" do
+  test 'should update user' do
     patch user_url(@user), params: { user: { name: @user.name, password: 'secret', password_confirmation: 'secret' } }
     assert_redirected_to users_url
   end
 
-  test "should not update user" do
+  test 'should not update user' do
     patch user_url(@user), params: { user: { name: @user.name, password: 'secret', password_confirmation: 'omg' } }
   end
 
-  test "should destroy user" do
+  test 'should destroy user' do
     assert_difference('User.count', -1) do
       delete user_url(@user)
     end
@@ -55,7 +55,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to users_url
   end
 
-  test "should not destroy last user" do
+  test 'should not destroy last user' do
     assert_difference('User.count', -1) do
       delete user_url(@user)
       delete user_url(@user2)
