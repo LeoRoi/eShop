@@ -1,0 +1,17 @@
+<div class="row content breadcrumb">
+  <div class="col-sm-12">
+    <%= user.name %>
+  </div>
+
+  <div class="row content">
+    <div class="col-sm-4">
+      <%= link_to 'Show', user %>
+    </div>
+    <div class="col-sm-4">
+      <%= link_to 'Edit', edit_user_path(user) %>
+    </div>
+    <div class="col-sm-4">
+      <%= link_to 'Destroy', user, method: :delete, data: {confirm: 'Are you sure?'} %>
+    </div>
+  </div>
+</div>

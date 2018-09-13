@@ -9,6 +9,7 @@
 
 <body>
 <script src="https://use.fontawesome.com/c560c025cf.js"></script>
+
 <div class="jumbotron">
   <div class="container text-center">
     <h1>Online Store</h1>
@@ -16,10 +17,15 @@
   </div>
 </div>
 
-<ul class="nav">
-</ul>
+<!--menu bar-->
 <%= render partial: "layouts/navbar" %>
 
+<!--emphasized notice message-->
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, class: "alert alert-info" %>
+<% end %>
+
+<!--individual content-->
 <%= yield %>
 </body>
 </html>

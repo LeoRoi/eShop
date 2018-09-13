@@ -14,8 +14,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
-!/log/.keep
-!/tmp/.keep
+# !/log/.keep
+# !/tmp/.keep
 
 /node_modules
 /yarn-error.log
@@ -33,4 +33,6 @@ public/uploads
 
 .idea/
 /*.iml
-coverage
+coverage/
+.DS_Store
+out/

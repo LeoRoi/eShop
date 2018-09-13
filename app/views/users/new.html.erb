@@ -1,0 +1,27 @@
+<% content_for :head do %>
+  <title>Create user</title>
+<% end %>
+
+<div class="container-fluid text-justify">
+
+  <div class="row content">
+    <br>
+  </div>
+
+  <div class="row content">
+    <div class="col-sm-2">
+    </div>
+
+    <div class="col-sm-8">
+      <h2>New User</h2>
+      <%= render 'form', user: @user %>
+      <%= link_to 'Back', users_path %>
+    </div>
+
+    <div class="col-sm-2">
+    </div>
+  </div>
+  <div class="row content">
+    <br>
+  </div>
+</div>

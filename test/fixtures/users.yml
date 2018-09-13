@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# test data for testing
+# password generation on the fly
+
+one:
+  name: myUser
+  password_digest: <%= BCrypt::Password.create('secret') %>
+
+two:
+  name: myAdmin
+  password_digest: <%= BCrypt::Password.create('secret') %>
