@@ -10,6 +10,7 @@
 <body>
 <script src="https://use.fontawesome.com/c560c025cf.js"></script>
 
+<!--header-->
 <div class="jumbotron">
   <div class="container text-center">
     <h1>Online Store</h1>
@@ -25,7 +26,21 @@
   <%= content_tag :div, msg, class: "alert alert-info" %>
 <% end %>
 
-<!--individual content-->
+<!--customized content-->
 <%= yield %>
+
+<!--footer-->
+<!--<footer class="page-footer font-small bg-secondary">-->
+<!--  <div class="container text-center">-->
+<!--    <p>Course work SS2018</p>-->
+<!--  </div>-->
+<!--</footer>-->
+<wrapper class="d-flex flex-column">
+  <footer class="container-fluid w-100 bg-dark text-light py-3">
+    <p>
+      why is there still a white space below???
+    </p>
+  </footer>
+</wrapper>
 </body>
 </html>
