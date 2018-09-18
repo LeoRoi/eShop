@@ -1,0 +1,41 @@
+de:
+  layouts:
+    navbar:
+      store: "Shop"
+      cart:  "Warenkorb"
+  catalog:
+    product:
+      addToCart: "in den Warenkorb"
+  carts:
+    show:
+      head: "Warenkorb"
+      emptyCart: "Korb leeren"
+      checkout: "zur Kasse"
+      sum: "Gesamtpreis"
+      cartReset: "Sind sie sicher?"
+    destroy:
+      cartDelete: "Warenkorb erfolgreich geleert!"
+  line_items:
+    line_item:
+      delete: "entfernen"
+    destroy:
+      lineDelete: "Die Ware wurde erfolgreich aus dem Warenkorb entdernt!"
+    create:
+      productAdded: "Ware zum Warenkorb hinzugefügt!"
+  orders:
+    new:
+      head: "Neue Bestellung"
+      newOrder: "Neue Bestellung"
+      back: "zurück"
+    form:
+      selectPay: "wählen Sie eine Zahlungsmethode"
+      submit: "Bestellung abschicken"
+    create:
+      orderDone: "Ihre Bestellung wurde erfolgreich abgeschickt!"
+    ensure_cart_isnt_empty:
+      cartIsEmpty: "Warenkorb ist leer!"
+  activerecord:
+    attributes:
+      order:
+        address: "Adresse"
+        pay_type: "Zahlung"
