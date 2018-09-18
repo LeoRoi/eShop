@@ -3,10 +3,10 @@ require 'test_helper'
 class UserStoriesTest < ActionDispatch::IntegrationTest
   fixtures :products
   include ActiveJob::TestHelper
-  
-#Ein User ist im Homepage, kauft einen Produkt und geht in den Kart. Danach
-# macht er den Checkout, fügt seine Daten ein und sendet die Bestellung.
-#
+
+  # Ein User ist im Homepage, kauft einen Produkt und geht in den Kart. Danach
+  # macht er den Checkout, fuegt seine Daten ein und sendet die Bestellung.
+
   test "buying a product" do
     start_order_count = Order.count
     first_product = products(:one)
@@ -20,10 +20,6 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
     cart = Cart.find(session[:cart_id])
     assert_equal 1, cart.line_items.size
     assert_equal first_product, cart.line_items[0].product
-
-    get "/orders/new"
-    assert_response :success
-    assert_select 'h2', "New Order"
 
     perform_enqueued_jobs do
       post "/orders", params: {

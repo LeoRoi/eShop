@@ -4,7 +4,6 @@ class OrderTest < ActiveSupport::TestCase
   def setup
     @order = orders(:one)
     @cart = carts(:one)
-
   end
 
   test "should be valid" do
