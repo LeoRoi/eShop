@@ -10,9 +10,11 @@ Rails.application.routes.draw do
     delete 'logout' => :destroy
   end
 
+  # not translated, only for admin use
   resources :users
   resources :products
 
+  # translated for users
   scope '(:locale)' do
     resources :orders
     resources :carts
