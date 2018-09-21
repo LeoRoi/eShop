@@ -1,9 +1,9 @@
 require 'test_helper'
 
 class CartsControllerTest < ActionDispatch::IntegrationTest
-  # setup do
-  # @cart = carts(:one)
-  # end
+  setup do
+    @def_loc = 'en'
+  end
 
   test "should get index" do
     get carts_url
@@ -15,7 +15,7 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
       post carts_url, params: { cart: {} }
     end
 
-    assert_redirected_to cart_url(Cart.last)
+    assert_redirected_to cart_url(Cart.last, locale: @def_loc)
   end
 
   test "should show cart" do
@@ -31,6 +31,6 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Cart.count', -1) do
       delete cart_url(@cart)
     end
-    assert_redirected_to catalog_index_url
+    assert_redirected_to catalog_index_url(locale: @def_loc)
   end
 end

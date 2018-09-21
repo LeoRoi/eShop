@@ -3,13 +3,14 @@ require 'test_helper'
 class LineItemsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @line_item = line_items(:one)
+    @def_loc = 'en'
   end
 
   test "should create line_item" do
     assert_difference('LineItem.count') do
       post line_items_url, params: { product_id: products(:one).id }
     end
-    assert_redirected_to cart_url(LineItem.last)
+    assert_redirected_to cart_url(LineItem.last, locale: @def_loc)
   end
 
   test "should destroy line_item" do

@@ -12,7 +12,7 @@
     </div>
     <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
       <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
-        <h6 id='totlin_<%= line_item.id %>'>$ <%= line_item.total_price %> </h6>
+        <h6 id='totlin_<%= line_item.id %>'>$<%= line_item.total_price %> </h6>
         <span class="text-muted" id='quantity_<%= line_item.id %>' >x <%= line_item.quantity %></span>
       </div>
 
@@ -23,7 +23,7 @@
       </div>
 
       <div class="col-2 col-sm-2 col-md-2 text-right">
-        <%= button_to "Delete", line_item_path(id: line_item), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-xs btn-sm" %>
+        <%= button_to t('.delete'), line_item_path(id: line_item), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-xs btn-sm" %>
       </div>
 
     </div>

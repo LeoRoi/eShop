@@ -4,7 +4,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @product = products(:one)
     @product2 = products(:three)
-
+    @def_loc = 'en'
   end
 
   test "should get index" do
@@ -25,7 +25,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
                                        price: '9.8',
                                        title: 'tryTitle' } }
     end
-    assert_redirected_to product_url(Product.last)
+    assert_redirected_to product_url(Product.last, locale: @def_loc)
   end
 
   test "should not create product" do
@@ -54,7 +54,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
                                                image_url: 'http://www.try/try.jpg',
                                                price: '9.8',
                                                title: 'tryTitle' } }
-    assert_redirected_to product_url(@product)
+    assert_redirected_to product_url(@product, locale: @def_loc)
   end
 
   test "should not update product" do
@@ -70,7 +70,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
       delete product_url(@product2)
     end
 
-    assert_redirected_to products_url
+    assert_redirected_to products_url(locale: @def_loc)
   end
 
 end

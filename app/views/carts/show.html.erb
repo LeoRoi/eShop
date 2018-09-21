@@ -1,3 +1,4 @@
+<% content_for :head, t('.head') %>
 <div class="container-fluid text-justify">
   <div class="row content">
     <br>
@@ -12,19 +13,18 @@
 
         <div class="card-header bg-dark text-light">
           <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-          Shopping cart
         </div>
         <%= render @cart.line_items %>
         <br>
         <div class="card-footer">
           <div class="row content">
             <div class="col-sm-6">
-              <%= button_to "Empty Cart", cart_path(id: @cart), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+              <%= button_to t('.emptyCart'), cart_path(id: @cart), method: :delete, data: { confirm: t('.cartReset') }, class: "btn btn-danger" %>
             </div>
             <div class="col-sm-6 pull-right">
-              <%= button_to "Checkout", new_order_path, method: :get, class: "btn btn-success pull-right btn-sm" %>
+              <%= button_to t('.checkout'), new_order_path, method: :get, class: "btn btn-success pull-right btn-sm" %>
               <div class="pull-right" style="margin: 5px" id="totalPrice">
-                Total price: $ <%= @cart.total_price %>
+                <%= t('.sum') %> $<%= @cart.total_price %>
               </div>
             </div>
           </div>

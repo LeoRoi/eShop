@@ -4,6 +4,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:one)
     @user2 = users(:two)
+    @def_loc = 'en'
   end
 
   test 'should get index' do
@@ -21,7 +22,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       post users_url, params: { user: { name: 'testName', password: 'secret', password_confirmation: 'secret' } }
     end
 
-    assert_redirected_to users_url
+    assert_redirected_to users_url(locale: @def_loc)
   end
 
   test 'should not create user' do
@@ -40,7 +41,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test 'should update user' do
     patch user_url(@user), params: { user: { name: @user.name, password: 'secret', password_confirmation: 'secret' } }
-    assert_redirected_to users_url
+    assert_redirected_to users_url(locale: @def_loc)
   end
 
   test 'should not update user' do
@@ -52,7 +53,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       delete user_url(@user2)
     end
 
-    assert_redirected_to users_url
+    assert_redirected_to users_url(locale: @def_loc)
   end
 
   test 'should not destroy last user' do
@@ -61,6 +62,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       delete user_url(@user2)
     end
 
-    assert_redirected_to users_url
+    assert_redirected_to users_url(locale: @def_loc)
   end
 end
