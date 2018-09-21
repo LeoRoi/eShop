@@ -1,13 +1,13 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <ul class="navbar-nav">
     <li class="nav-item <%= 'active' if current_page?(catalog_index_path) %>">
-      <a class="nav-link" href='<%= catalog_index_path %>'>Store</a>
+      <a class="nav-link" href='<%= catalog_index_path %>'><%= t('.store') %></a>
     </li>
     <li class="nav-item <%= 'active' if request.fullpath.start_with?('/carts') %>">
-      <a class="nav-link" href='<%= carts_path %>' id="cartLink"> Cart </a>
+      <a class="nav-link" href='<%= carts_path %>' id="cartLink"><%= t('.cart') %></a>
     </li>
     <a class="navbar-separator">|</a>
-    <!--    restricted access-->
+    <!--restricted access for admin without translation-->
     <% if session[:user_id] %>
       <li class="nav-item <%= 'active' if current_page?(products_path) %>">
         <a class="nav-link" href='<%= products_path %>'>Products</a>
@@ -23,12 +23,16 @@
 
   <!--right side menu-->
   <ul class="navbar-nav ml-auto">
+<!--    language-->
+    <%= form_tag catalog_index_path, class: 'locale' do %>
+      <%= select_tag 'set_locale', options_for_select(LANGUAGES, I18n.locale.to_s),
+      onchange: 'this.form.submit()' %>
+      <%= submit_tag 'submit' %>
+      <%= javascript_tag "$('.locale input').hide()" %>
+    <% end %>
+<!--    show only if logged in-->
     <% if session[:user_id] %>
       <%= link_to "Log out", logout_path, class: "nav-link", method: :delete %>
-    <% else %>
-      <li class="nav-item">
-        <a class="nav-link" href='<%= login_url %>'>Account</a>
-      </li>
     <% end %>
   </ul>
 </nav>

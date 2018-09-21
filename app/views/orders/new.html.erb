@@ -1,6 +1,4 @@
-<% content_for :head do %>
-  <title>New Order</title>
-<% end %>
+<% content_for :head, t('.head') %>
 <div class="container-fluid text-justify productDescription">
   <div class="row content">
     <br>
@@ -9,9 +7,9 @@
     <div class="col-sm-2">
     </div>
     <div class="col-sm-8">
-      <h2>New Order</h2>
+      <h2><%= t('.newOrder') %></h2>
       <%= render 'form', order: @order %>
-      <%= link_to 'Back', carts_path %>
+      <%= link_to t('.back'), carts_path %>
     </div>
     <div class="col-sm-2">
     </div>

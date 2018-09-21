@@ -30,4 +30,39 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  layouts:
+    navbar:
+      store: "Store"
+      cart:  "Cart"
+  catalog:
+    product:
+      addToCart: "add to cart"
+  carts:
+    show:
+      head: "Cart"
+      emptyCart: "empty cart"
+      checkout: "checkout"
+      sum: "Total price"
+      cartReset: "Are you sure?"
+    destroy:
+      cartDelete: "Cart was successfully emptied!"
+  line_items:
+    line_item:
+      delete: "delete"
+    destroy:
+      lineDelete: "Product has been successfully removed from your cart!"
+    create:
+      productAdded: "Product added to cart!"
+  orders:
+    new:
+      head: "New order"
+      newOrder: "New order"
+      back: "back"
+    form:
+      selectPay: "choose a desired payment method"
+      submit: "place order"
+    create:
+      orderDone: "Your order has been placed successfully"
+    ensure_cart_isnt_empty:
+      cartIsEmpty: "Your cart is empty!"
+    

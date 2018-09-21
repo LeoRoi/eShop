@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
         session[:cart_id] = nil
         OrderMailer.seller(@order).deliver_later
         OrderMailer.received(@order).deliver_later
-        format.html { redirect_to catalog_index_url, notice: 'Order was successfully created.' }
+        format.html { redirect_to catalog_index_url, notice: t('orders.create.orderDone') }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
@@ -57,7 +57,7 @@ class OrdersController < ApplicationController
 
   def ensure_cart_isnt_empty
     return unless @cart.line_items.empty?
-    redirect_to catalog_index_url, notice: 'Your cart is empty'
+    redirect_to catalog_index_url, notice: t('orders.ensure_cart_isnt_empty.cartIsEmpty')
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

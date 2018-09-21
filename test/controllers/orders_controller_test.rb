@@ -3,6 +3,7 @@ require 'test_helper'
 class OrdersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @order = orders(:one)
+    @def_loc = 'en'
   end
 
   test "should get index" do
@@ -27,7 +28,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
                                      name: @order.name } }
     end
 
-    assert_redirected_to catalog_index_url
+    assert_redirected_to catalog_index_url(locale: @def_loc)
   end
 
   test "should not create order" do # without address (validation test)
@@ -41,13 +42,13 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
       delete order_url(@order)
     end
 
-    assert_redirected_to orders_url
+    assert_redirected_to orders_url(locale: @def_loc)
   end
 
   test "requires item in cart" do
     get new_order_url
-    assert_redirected_to catalog_index_path
-    assert_equal flash[:notice], 'Your cart is empty'
+    assert_redirected_to catalog_index_path(locale: @def_loc)
+    assert_equal flash[:notice], 'Your cart is empty!'
   end
 
 end
