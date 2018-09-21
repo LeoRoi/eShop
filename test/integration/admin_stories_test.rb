@@ -29,7 +29,7 @@ class AdminStoriesTest < ActionDispatch::IntegrationTest
 
     logout
     get "/orders"
-    assert_redirected_to login_path
+    assert_redirected_to login_path(locale: 'en')
 
   end
 end
