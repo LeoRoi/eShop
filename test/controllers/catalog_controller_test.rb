@@ -6,4 +6,9 @@ class CatalogControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get index with locale" do
+    get catalog_index_url(set_locale: 'en')
+    assert_redirected_to catalog_index_url(locale: 'en')
+  end
+
 end
