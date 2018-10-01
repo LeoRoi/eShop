@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= content_for?(:head) ? yield(:head) : "eShop" %></title>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +10,13 @@
 
 <body>
 <script src="https://use.fontawesome.com/c560c025cf.js"></script>
+
+<!--<div class="jumbotron">-->
+<!--  <div class="container text-center">-->
+<!--    <h1>Online Store</h1>-->
+<!--    <p>Mission, Vission & Values</p>-->
+<!--  </div>-->
+<!--</div>-->
 
 <!--common header-->
 <%= render partial: "layouts/carusel" %>
@@ -25,12 +33,19 @@
 <%= yield %>
 
 <!--common footer-->
-<footer class="container-fluid text-center">
+<!--<footer class="container-fluid text-center">-->
+<!--  <p>-->
+<!--    Vindimian & Loparev-->
+<!--    <br>-->
+<!--    SoSe 2018-->
+<!--  </p>-->
+<!--</footer>-->
+<div class="footer">
   <p>
     Vindimian & Loparev
     <br>
     SoSe 2018
   </p>
-</footer>
+</div>
 </body>
 </html>
