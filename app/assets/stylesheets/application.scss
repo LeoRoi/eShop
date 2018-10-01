@@ -26,36 +26,26 @@
   font-size: 9px;
 }
 
-footer {
-  background-color: #f2f2f2;
-  padding: 25px;
-  position: fixed;
-  bottom: 0px;
-}
-
 .footer {
   position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
   padding: 1rem;
-  background-color: #efefef;
+  background-color: #f2f2f2;
   text-align: center;
 }
 
-.carousel-inner img {
-  width: 100%;
+html {
   height: 100%;
-
+  box-sizing: border-box;
 }
 
-//div#demo {
-//  width: 100%;
-//  padding-bottom: 55%;
-//  position: relative;
-//}
-//
-//.carousel-inner > div#demo {
-//  position: absolute;
-//  top: 0; bottom: 0; left: 0; right: 0;
-//}
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
