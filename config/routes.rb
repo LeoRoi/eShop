@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # static pages as array
   # get '/pages/*page' => 'pages#show'
   # get 'home' => 'pages#show', page: 'home'
-  get 'home' => 'pages#home'
+  get 'about' => 'pages#about'
 
   # no index in url
   get 'admin' => 'admin#index'

@@ -1,13 +1,13 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <ul class="navbar-nav">
-    <li class="nav-item <%= 'active' if request.fullpath.starts_with?('/home') %>">
-      <a class="nav-link" href='<%= home_path %>'><%= t('.home') %></a>
-    </li>
     <li class="nav-item <%= 'active' if current_page?(catalog_index_path) %>">
       <a class="nav-link" href='<%= catalog_index_path %>'><%= t('.store') %></a>
     </li>
     <li class="nav-item <%= 'active' if request.fullpath.start_with?('/carts') %>">
       <a class="nav-link" href='<%= carts_path %>' id="cartLink"><%= t('.cart') %></a>
+    </li>
+    <li class="nav-item <%= 'active' if request.fullpath.starts_with?('/about') %>">
+      <a class="nav-link" href='<%= about_path %>'><%= t('.about') %></a>
     </li>
     <a class="navbar-separator">|</a>
     <!--restricted access for admin without translation-->
@@ -26,14 +26,14 @@
 
   <!--right side menu-->
   <ul class="navbar-nav ml-auto">
-<!--    language-->
+    <!--    language-->
     <%= form_tag catalog_index_path, class: 'locale' do %>
       <%= select_tag 'set_locale', options_for_select(LANGUAGES, I18n.locale.to_s),
-      onchange: 'this.form.submit()' %>
+                     onchange: 'this.form.submit()' %>
       <%= submit_tag 'submit' %>
       <%= javascript_tag "$('.locale input').hide()" %>
     <% end %>
-<!--    show only if logged in-->
+    <!--    show only if logged in-->
     <% if session[:user_id] %>
       <%= link_to "Log out", logout_path, class: "nav-link", method: :delete %>
     <% end %>
