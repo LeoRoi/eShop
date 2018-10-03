@@ -40,6 +40,11 @@ Next, migrate the database:
 $ rails db:migrate
 ```
 
+Then, you can load some data to test the application in the browser:
+```
+$ rails db:fixtures:load
+```
+
 Finally, run the test suite to verify that everything is working correctly:
 ```
 $ rails test
