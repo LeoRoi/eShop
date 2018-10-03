@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<body>
+<br>
+<div class="row">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <%= if I18n.locale == :de
+         render partial: "pages/home_de"
+       else
+         render partial: "pages/home_en"
+       end %>
+  </div>
+  <div class="col-3"></div>
+</div>
+<br>
+</body>
+</html>
+

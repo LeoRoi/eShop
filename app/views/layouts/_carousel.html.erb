@@ -1,0 +1,33 @@
+<div id="demo" class="carousel slide w-100 mx-auto" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+
+  <!--  pics-->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag("shoes-970354_1920.jpg", alt: "Friends", class: "img-fluid") %>
+    </div>
+
+    <div class="carousel-item">
+      <%= image_tag("car-1209334_1920.jpg", alt: "Home", class: "img-fluid") %>
+    </div>
+
+    <div class="carousel-item">
+      <%= image_tag("rain-122691_1920.jpg", alt: "Rain", class: "img-fluid") %>
+    </div>
+  </div>
+
+  <!--  ctrl arrows-->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>

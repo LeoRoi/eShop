@@ -10,13 +10,12 @@
 <body>
 <script src="https://use.fontawesome.com/c560c025cf.js"></script>
 
-<!--common header-->
-<div class="jumbotron">
-  <div class="container text-center">
-    <h1>Online Store</h1>
-    <p>Mission, Vission & Values</p>
-  </div>
-</div>
+<!--carousel or header-->
+<%= if request.fullpath.starts_with?('/home')
+      render partial: "layouts/carousel"
+    else
+      render partial: "layouts/jumbo"
+    end %>
 
 <!--menu bar-->
 <%= render partial: "layouts/navbar" %>
