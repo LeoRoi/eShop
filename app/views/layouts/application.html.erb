@@ -11,7 +11,11 @@
 <script src="https://use.fontawesome.com/c560c025cf.js"></script>
 
 <!--common header-->
-<%= render partial: "layouts/carusel" %>
+<%= if request.fullpath.starts_with?('/home')
+      render partial: "layouts/carusel"
+    else
+      render partial: "layouts/jumbo"
+    end %>
 
 <!--menu bar-->
 <%= render partial: "layouts/navbar" %>

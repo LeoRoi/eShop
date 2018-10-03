@@ -33,7 +33,8 @@ en:
   layouts:
     navbar:
       store: "Store"
-      cart:  "Cart"
+      cart: "Cart"
+      home: "Home"
   catalog:
     product:
       addToCart: "add to cart"

@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
-  def show
-    render template: "pages/#{params[:page]}"
+  skip_before_action :authorize
+
+  def home
   end
 end
