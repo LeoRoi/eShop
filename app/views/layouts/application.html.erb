@@ -10,9 +10,9 @@
 <body>
 <script src="https://use.fontawesome.com/c560c025cf.js"></script>
 
-<!--common header-->
+<!--carousel or header-->
 <%= if request.fullpath.starts_with?('/home')
-      render partial: "layouts/carusel"
+      render partial: "layouts/carousel"
     else
       render partial: "layouts/jumbo"
     end %>
