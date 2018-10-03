@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  # static pages
+  get '/pages/:page' => 'pages#show'
+
   # no index in url
   get 'admin' => 'admin#index'
 
@@ -10,7 +13,7 @@ Rails.application.routes.draw do
     delete 'logout' => :destroy
   end
 
-  # not translated, only for admin use
+  # admin use only
   resources :users
   resources :products
 
