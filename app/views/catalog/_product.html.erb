@@ -11,7 +11,7 @@
         <h6> <%= number_to_currency(product.price) %> </h6>
       </div>
       <div class="col-sm-10">
-        <%= button_to t('.addToCart'), line_items_path(product_id: product.id), class: "btn btn-lg btn-primary btn-sm", remote: true %>
+        <%= button_to t('.addToCart'), line_items_path(product_id: product.id), class: "btn btn-lg btn-primary btn-sm", id: "add_cart_btn", remote: true %>
       </div>
     </div>
   </div>
