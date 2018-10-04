@@ -1,5 +1,5 @@
 <%= bootstrap_form_with model: user, local: true do |form| %>
   <%= form.text_field :name, id: :user_name %>
   <%= form.password_field :password, id: :user_password %>
-  <%= form.submit "Log in" %>
+  <%= form.submit "Log in", id: "login_btn" %>
 <% end %>

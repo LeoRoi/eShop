@@ -1,9 +1,6 @@
 <% content_for :head, 'Log in' %>
 
 <div class="container-fluid text-justify">
-  <% if flash[:alert] %>
-    <p id="notice"><%= flash[:alert] %></p>
-  <% end %>
 
   <div class="row content">
     <br>
@@ -16,7 +13,7 @@
     <div class="col-sm-8">
       <h2>Enter your account data</h2>
       <%= render 'form', user: @session %>
-      <%= link_to 'Cancel', catalog_index_url %>
+      <%= link_to 'Cancel', catalog_index_url, id: "login_cancel" %>
     </div>
 
     <div class="col-sm-2">
@@ -27,27 +24,27 @@
   </div>
 </div>
 
-  <%#= form_tag do %>
+<%#= form_tag do %>
 <!--    <fieldset>-->
 <!--      <legend>Please Log In</legend>-->
 
 <!--      <div>-->
-        <%#= label_tag :name, 'Name:' %>
-        <%#= text_field_tag :name, params[:name] %>
+<%#= label_tag :name, 'Name:' %>
+<%#= text_field_tag :name, params[:name] %>
 <!--      </div>-->
 
 <!--      <div>-->
-        <%#= label_tag :password, 'Password:' %>
-        <%#= password_field_tag :password, params[:password] %>
+<%#= label_tag :password, 'Password:' %>
+<%#= password_field_tag :password, params[:password] %>
 <!--      </div>-->
 
 <!--      <div>-->
-        <%#= submit_tag "Login" %>
+<%#= submit_tag "Login" %>
 <!--      </div>-->
 
 
 <!--    </fieldset>-->
-  <%# end %>
+<%# end %>
 <!--</div>-->
 
 
