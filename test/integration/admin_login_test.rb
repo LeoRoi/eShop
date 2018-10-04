@@ -2,7 +2,7 @@ require 'test_helper'
 
 class AdminLoginTest < ActionDispatch::IntegrationTest
   def setup
-    @user_myAdmin = users(:two)
+    @user_my_admin = users(:two)
     @def_loc = 'en'
     logout
   end
@@ -17,7 +17,7 @@ class AdminLoginTest < ActionDispatch::IntegrationTest
   end
 
   test 'login with valid information followed by logout' do
-    post login_url, params: { name: @user_myAdmin.name, password: 'secret' }
+    post login_url, params: { name: @user_my_admin.name, password: 'secret' }
     assert_redirected_to admin_url(locale: @def_loc)
     get admin_url
     assert_response :success
