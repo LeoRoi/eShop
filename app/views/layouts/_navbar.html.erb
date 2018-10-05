@@ -3,7 +3,7 @@
     <li class="nav-item <%= 'active' if current_page?(catalog_index_path) %>">
       <a class="nav-link" id="store_navbar" href='<%= catalog_index_path %>'><%= t('.store') %></a>
     </li>
-    <li class="nav-item <%= 'active' if request.fullpath.start_with?('/carts') %>">
+    <li class="nav-item <%= 'active' if request.fullpath.start_with?("/en/carts") | request.fullpath.start_with?("/de/carts") %>">
       <a class="nav-link" id="cart_navbar" href='<%= carts_path %>' id="cartLink"><%= t('.cart') %></a>
     </li>
     <li class="nav-item <%= 'active' if request.fullpath.starts_with?('/about') %>">

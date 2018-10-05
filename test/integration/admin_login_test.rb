@@ -33,11 +33,11 @@ class AdminLoginTest < ActionDispatch::IntegrationTest
     delete logout_path
     assert flash[:notice] == 'Logged out'
     get orders_path
-    assert_redirected_to login_path(locale: 'en')
+    assert_redirected_to login_path(locale: @def_loc)
     get users_path
-    assert_redirected_to login_path(locale: 'en')
+    assert_redirected_to login_path(locale: @def_loc)
     get products_path
-    assert_redirected_to login_path(locale: 'en')
+    assert_redirected_to login_path(locale: @def_loc)
   end
 
   test 'login with invalid information' do
@@ -45,11 +45,11 @@ class AdminLoginTest < ActionDispatch::IntegrationTest
     assert_redirected_to login_url(locale: @def_loc)
     assert flash[:notice] == 'Log in required!'
     get orders_path
-    assert_redirected_to login_path(locale: 'en')
+    assert_redirected_to login_path(locale: @def_loc)
     get users_path
-    assert_redirected_to login_path(locale: 'en')
+    assert_redirected_to login_path(locale: @def_loc)
     get products_path
-    assert_redirected_to login_path(locale: 'en')
+    assert_redirected_to login_path(locale: @def_loc)
   end
 
 end
