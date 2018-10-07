@@ -11,11 +11,6 @@ class InternationalisationTest < ActionDispatch::IntegrationTest
     get about_path
     assert_select '#about_title', text: "THE BAND"
     assert_select '#about_subtitle', text: "We love cakes"
-
-    @cart = carts(:one)
-    get cart_path(@cart)
-    assert_response :success
-
   end
 
   test 'german language' do
