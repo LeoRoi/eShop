@@ -43,7 +43,7 @@ class OrdersController < ApplicationController
     OrderMailer.shipped(@order).deliver_later
     @order.destroy
     respond_to do |format|
-      format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
+      format.html { redirect_to orders_url, notice: 'Order was successfully shipped.' }
       format.json { head :no_content }
     end
   end
