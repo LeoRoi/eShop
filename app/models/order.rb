@@ -19,7 +19,7 @@ class Order < ApplicationRecord
     "Credit Card" => 1,
     "Purchase Order" => 2
   }
-  validates :name, :address, :email, presence: true
+  validates :name, :street, :street_number, :city, :state, :zip_code, :country, :email, presence: true
   validates :pay_type, inclusion: pay_types.keys
 
   def add_line_items_from_cart(cart)

@@ -15,8 +15,33 @@ class OrderTest < ActiveSupport::TestCase
     assert_not @order.valid?
   end
 
-  test "address should be present" do
-    @order.address = '     '
+  test "street should be present" do
+    @order.street = '     '
+    assert_not @order.valid?
+  end
+
+  test "street_number should be present" do
+    @order.street_number = '     '
+    assert_not @order.valid?
+  end
+
+  test "city should be present" do
+    @order.city = '     '
+    assert_not @order.valid?
+  end
+
+  test "state should be present" do
+    @order.state = '     '
+    assert_not @order.valid?
+  end
+
+  test "zip_code should be present" do
+    @order.zip_code = '     '
+    assert_not @order.valid?
+  end
+
+  test "country should be present" do
+    @order.country = '     '
     assert_not @order.valid?
   end
 

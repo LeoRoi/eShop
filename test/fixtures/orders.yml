@@ -2,12 +2,22 @@
 
 one:
   name: Name
-  address: MyText
+  street: MyText
+  street_number: myStreet
+  city: myCity
+  state: myState
+  zip_code: myZip
+  country: myCountry
   email: test@example.org
   pay_type: Check
 
 two:
   name: Name2
-  address: MyText2
+  street: MyText2
+  street_number: myStreet2
+  city: myCity2
+  state: myState2
+  zip_code: myZip2
+  country: myCountry2
   email: test2@example.org
   pay_type: Check

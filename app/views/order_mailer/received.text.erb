@@ -6,6 +6,6 @@ You ordered the following items:
 
 <%= render @order.line_items %>
 
-Total: Total: <%= @order.line_items.to_a.sum(&:total_price) %> $
+Total: <%= @order.line_items.to_a.sum(&:total_price) %> $
 
 We'll send you a separate e-mail when your order ships.
