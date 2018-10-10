@@ -1,12 +1,96 @@
-<%= bootstrap_form_with model: order, local: true do |form| %>
-  <%= form.text_field :name %>
-  <%= form.text_field :street %>
-  <%= form.text_field :street_number %>
-  <%= form.text_field :city %>
-  <%= form.text_field :state %>
-  <%= form.text_field :zip_code %>
-  <%= form.text_field :country %>
-  <%= form.email_field :email %>
-  <%= form.select :pay_type, Order.pay_types.keys, prompt: t('.selectPay') %>
-  <%= form.submit t('.submit')%>
+<%= form_for(@order) do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+<br>
+  <div id="locationField">
+    <input id="autocomplete" placeholder="Enter your address"
+           onFocus="geolocate()" type="text"></input>
+  </div>
+  <%= f.label :street %>
+  <%= f.text_field :street, class: 'form-control', disabled: 'true', id:'route' %>
+  <%= f.label :street_number %>
+  <%= f.text_field :street_number, class: 'form-control', disabled: 'true', id:'street_number' %>
+  <%= f.label :city %>
+  <%= f.text_field :city, class: 'form-control', disabled: 'true', id:'locality' %>
+  <%= f.label :state %>
+  <%= f.text_field :state, class: 'form-control', disabled: 'true', id:'administrative_area_level_1' %>
+  <%= f.label :zip_code %>
+  <%= f.text_field :zip_code, class: 'form-control', disabled: 'true', id:'postal_code'%>
+  <%= f.label :country %>
+  <%= f.text_field :country, class: 'form-control', disabled: 'true', id:'country' %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email, class: 'form-control' %>
+  <%= f.label :pay_type %>
+  <%= f.select :pay_type, Order.pay_types.keys %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
+
+
+
+<script>
+    var placeSearch, autocomplete;
+    var componentForm = {
+        street_number: 'short_name',
+        route: 'long_name',
+        locality: 'long_name',
+        administrative_area_level_1: 'short_name',
+        country: 'long_name',
+        postal_code: 'short_name'
+    };
+
+    function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+            {types: ['geocode']});
+
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        autocomplete.addListener('place_changed', fillInAddress);
+    }
+
+    function fillInAddress() {
+        // Get the place details from the autocomplete object.
+        var place = autocomplete.getPlace();
+        window.alert(place.address_components[0].types[0]);
+        for (var component in componentForm) {
+            document.getElementById(component).value = '';
+        }
+
+        // Get each component of the address from the place details
+        // and fill the corresponding field on the form.
+        for (var i = 0; i < place.address_components.length; i++) {
+            var addressType = place.address_components[i].types[0];
+            if (componentForm[addressType]) {
+                var val = place.address_components[i][componentForm[addressType]];
+                document.getElementById(addressType).value = val;
+            }
+        }
+    }
+
+    // Bias the autocomplete object to the user's geographical location,
+    // as supplied by the browser's 'navigator.geolocation' object.
+    function geolocate() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var geolocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                var circle = new google.maps.Circle({
+                    center: geolocation,
+                    radius: position.coords.accuracy
+                });
+                autocomplete.setBounds(circle.getBounds());
+            });
+        }
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=-HIER DIE APIKEY FEHLT-&libraries=places&callback=initAutocomplete"
+        async defer></script>
+</body>
+</html>
