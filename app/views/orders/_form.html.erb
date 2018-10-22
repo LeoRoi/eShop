@@ -1,7 +1,35 @@
-<%= bootstrap_form_with model: order, local: true do |form| %>
-  <%= form.text_field :name %>
-  <%= form.text_area :address %>
-  <%= form.email_field :email %>
-  <%= form.select :pay_type, Order.pay_types.keys, prompt: t('.selectPay') %>
-  <%= form.submit t('.submit')%>
-<% end %>
+<div class="form-area">
+  <%= bootstrap_form_with model: order, local: true do |f| %>
+    <br>
+    <%= f.text_field :name, class: 'form-control' %>
+    <div id="locationField">
+      <input id="autocomplete" class="form-control" placeholder="Enter your address"
+             onFocus="geolocate()" type="text"></input>
+    </div>
+    <br>
+    <div class="form-row">
+      <div class="col-sm-8">
+        <%= f.text_field :street, class: 'form-control', id: 'route', readonly: true %>
+      </div>
+      <div class="col-sm-4">
+        <%= f.text_field :street_number, class: 'form-control', id: 'street_number', readonly: true %>
+      </div>
+    </div>
+    <%= f.text_field :city, class: 'form-control', id: 'locality', readonly: true %>
+    <div class="form-row">
+      <div class="col-sm-8">
+        <%= f.text_field :state, class: 'form-control', id: 'administrative_area_level_1', readonly: true %>
+      </div>
+      <div class="col-sm-4">
+        <%= f.text_field :zip_code, class: 'form-control', id: 'postal_code', readonly: true %>
+      </div>
+    </div>
+    <%= f.text_field :country, class: 'form-control', id: 'country', readonly: true %>
+    <%= f.email_field :email, class: 'form-control' %>
+    <%= f.select :pay_type, Order.pay_types.keys %>
+    <br>
+    <%= f.submit yield(:button_text), remote: true, class: "btn btn-primary pull-right", value: "Submit", id: "bbb" %>
+  <% end %>
+  <%= button_to "Back", catalog_index_path, class: "btn btn-danger" %>
+  <%= javascript_include_tag google_maps_api %>
+</div>

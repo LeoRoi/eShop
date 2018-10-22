@@ -23,7 +23,12 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Order.count') do
       post orders_url, params: { order:
                                    { pay_type: @order.pay_type,
-                                     address: @order.address,
+                                     street: @order.street,
+                                     street_number: @order.street_number,
+                                     city: @order.city,
+                                     state: @order.state,
+                                     zip_code: @order.zip_code,
+                                     country: @order.country,
                                      email: @order.email,
                                      name: @order.name } }
     end

@@ -31,7 +31,12 @@ ActiveRecord::Schema.define(version: 20180903170822) do
 
   create_table "orders", force: :cascade do |t|
     t.string "name"
-    t.text "address"
+    t.text "street"
+    t.text "street_number"
+    t.text "city"
+    t.text "state"
+    t.text "zip_code"
+    t.text "country"
     t.string "email"
     t.integer "pay_type"
     t.datetime "created_at", null: false

@@ -13,13 +13,13 @@
     <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
       <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
         <h6 id='totlin_<%= line_item.id %>'>$<%= line_item.total_price %> </h6>
-        <span class="text-muted" id='quantity_<%= line_item.id %>' >x <%= line_item.quantity %></span>
+        <span class="text-muted" id='quantity_<%= line_item.id %>'>x <%= line_item.quantity %></span>
       </div>
 
       <div>
-        <%= button_to "+", increase_line_item_path(product_id: line_item.product), remote: true, class: "btn ", method: :put %>
+        <%= button_to " + ", increase_line_item_path(product_id: line_item.product), remote: true, class: "btn-xs btn-block", method: :put %>
         <br>
-        <%= button_to "-", decrease_line_item_path(product_id: line_item.product), remote: true, class: "btn ", method: :put %>
+        <%= button_to " - ", decrease_line_item_path(product_id: line_item.product), remote: true, class: "btn-xs btn-block", method: :put %>
       </div>
 
       <div class="col-2 col-sm-2 col-md-2 text-right">

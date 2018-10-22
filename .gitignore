@@ -30,6 +30,7 @@ public/uploads
 
 # Ignore dev environment variables
 .env
+/config/local_env.yml
 
 .idea/
 /*.iml

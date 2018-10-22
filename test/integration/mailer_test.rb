@@ -25,7 +25,12 @@ class MailerTest < ActionDispatch::IntegrationTest
       post "/orders", params: {
         order: {
           name: "Claudio Vindimian",
-          address: "Hermanstrasse 2",
+          street: "Hermanstrasse",
+          street_number: "2",
+          city: "Berlin",
+          state: "Berlin",
+          zip_code: "29349",
+          country: "Germany",
           email: "beispiel@gmail.com",
           pay_type: "Check"
         }

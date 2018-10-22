@@ -1,14 +1,14 @@
 <div class="row content breadcrumb">
-  <div class="col-sm-1">
+  <div class="col-sm-2">
     <%= order.id %>
   </div>
   <div class="col-sm-2">
     <%= order.name %>
   </div>
   <div class="col-sm-3">
-    <%= order.address %>
+    <%= order.street %>, <%= order.street_number %> (<%= order.city %>)
   </div>
-  <div class="col-sm-3">
+  <div class="col-sm-2">
     <%= order.email %>
   </div>
   <div class="col-sm-2">

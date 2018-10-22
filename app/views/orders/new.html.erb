@@ -4,14 +4,13 @@
     <br>
   </div>
   <div class="row content">
-    <div class="col-sm-2">
+    <div class="col-sm-3">
     </div>
-    <div class="col-sm-8">
-      <h2><%= t('.newOrder') %></h2>
+    <div class="col-sm-6">
+      <h3><%= t('.newOrder')%>:</h3>
       <%= render 'form', order: @order %>
-      <%= link_to t('.back'), carts_path %>
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-3">
     </div>
   </div>
   <div class="row content">

@@ -5,10 +5,11 @@
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'google_maps_api' %>
+  <%= javascript_include_tag 'https://use.fontawesome.com/c560c025cf.js' %>
 </head>
 
 <body>
-<script src="https://use.fontawesome.com/c560c025cf.js"></script>
 
 <!--carousel or header-->
 <%= if request.fullpath.starts_with?('/about')
