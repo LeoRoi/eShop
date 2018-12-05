@@ -2,14 +2,10 @@
 
 ## Features
 
-### Product management 
-
-* Crud
-
-### Catalog Display
-
-* Product displayed in a catalog
-
+- product catalog and cart functionality
+- admin login and session management
+- mailing system in connection with checkout
+- internationalization with English and German
 
 ## Additional Gems
 
@@ -25,10 +21,9 @@
 * [License_finder](https://www.rubydoc.info/gems/license_finder)
 * [SimpleCov](https://github.com/colszowka/simplecov)
 
-
 ## Getting started
 
-Ecommerce Web Application
+e-commerce Web Application
 
 To get started with the app, clone the repo and then install the needed gems:
 ```
