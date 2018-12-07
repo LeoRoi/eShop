@@ -2,16 +2,18 @@
 
 ## Features
 
-- product catalog and cart functionality
-- admin login and session management
-- mailing system in connection with checkout
-- internationalization with English and German
+- product catalog, cart and checkout without login
+- session management to prevent data manipulation 
+- login for admins to handle products and orders
+- mail notifications after buy & send actions
+- English & German translations provided
 
 ## Additional Gems
 
 ### Implementation
 
 * [Comfy](https://github.com/comfy/comfy-bootstrap-form)
+* [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/libraries)
 
 ### Quality assurance
 

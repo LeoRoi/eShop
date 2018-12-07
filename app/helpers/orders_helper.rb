@@ -1,6 +1,7 @@
 module OrdersHelper
 
   def google_maps_api
+    # insert bought key here
     "#{google_maps_api_url}/api/js?key=#{google_maps_api_key}&libraries=places&callback=initAutocomplete"
   end
 
