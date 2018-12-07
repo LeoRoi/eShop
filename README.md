@@ -12,8 +12,9 @@
 
 ### Implementation
 
-* [Comfy](https://github.com/comfy/comfy-bootstrap-form)
-* [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/libraries)
+* <a href="https://github.com/twbs/bootstrap-rubygem" target="_blank">Bootstrap 4</a>
+* <a href="https://github.com/comfy/comfy-bootstrap-form" target="_blank">Comfy</a>
+* <a href="https://developers.google.com/maps/documentation/javascript/libraries" target="_blank">Google Maps JavaScript API</a>
 
 ### Quality assurance
 
